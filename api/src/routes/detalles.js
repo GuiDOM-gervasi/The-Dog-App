@@ -6,10 +6,14 @@ const {
   } = process.env;
 
 
-router.get('/',(req,res)=>{
+router.get('/:idRaza',(req,res)=>{
   axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)
-  .then(
-    
+  .then((response)=>{
+     var filterId = response.data.filter((element)=>{
+       return element.id.toString() === req.params.idRaza.toString()
+      })
+      return res.json(filterId)
+    }
   )
   .catch(error=>{
     console.log(error)
