@@ -1,30 +1,24 @@
 const {Router} = require("express");
 const router = Router();
 const axios = require('axios')
+const models = require('../db.js')
+const {Temperament, Dog} = models.conn.models
 const {
     YOUR_API_KEY
   } = process.env;
 
-router.use('/',(req,res)=>{
-    axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`)
+router.use('/',async (req,res)=>{
+    Temperament.findAll()
     .then((response)=>{
-        
-        var array = response.data.map(element => {          
-                return element.temperament
-        });
-        
-         var s = array.map((e)=>{
-             if(e !== undefined && e !== null){
-                 return e.split(",")
-             }
+        var tempes = response.map((e)=>{
+            return {
+                name: e.name,
+                id: e.id
+            }
         })
-        var a = [];
-        s.forEach(e=>a = a.concat(e))    
-        res.json([...new Set(a)])
+        res.json(tempes)
     })
-    .catch((error)=>{
-        res.json(error.message)
-    })
+      
 })
 
 module.exports = router  
