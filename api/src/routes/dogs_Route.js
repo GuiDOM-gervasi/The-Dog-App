@@ -16,6 +16,10 @@ router.get('/',(req,res)=>{
           if(!filter.length){
             res.send('No se ha encontrado un perro con ese nombre')
           }
+          if(filter.length>8){
+            filter = filter.splice(0,8)
+            return res.json(filter)
+          }
           return res.json(filter)
         }
         var principal = [];
@@ -53,5 +57,6 @@ router.get('/:idRaza',(req,res)=>{
     res.json(error.message)
   })
 })
+
 
 module.exports = router

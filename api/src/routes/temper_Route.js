@@ -2,12 +2,12 @@ const {Router} = require("express");
 const router = Router();
 const axios = require('axios')
 const models = require('../db.js')
-const {Temperament, Dog} = models.conn.models
+const {Temperament} = models.conn.models
 const {
     YOUR_API_KEY
   } = process.env;
 
-router.use('/',async (req,res)=>{
+router.use('/',(req,res)=>{
     Temperament.findAll()
     .then((response)=>{
         var tempes = response.map((e)=>{
