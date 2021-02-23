@@ -50,7 +50,18 @@ router.get('/:idRaza',(req,res)=>{
       if(!findId){
         return res.send('No se ha encontrado un perro con el id ingresado')
       }
-      return res.json(findId)
+     
+    var {name,image,temperament,height,weight,life_span} = findId   
+     var obj = {
+                name,
+                img: image.url,
+                temperament,
+                height,
+                weight,
+                life_span
+            }
+        
+      return res.json(obj)
     }
   )
   .catch(error=>{

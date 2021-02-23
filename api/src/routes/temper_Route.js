@@ -7,7 +7,7 @@ const {
     YOUR_API_KEY
   } = process.env;
 
-router.use('/',(req,res)=>{
+router.get('/',(req,res)=>{
     Temperament.findAll()
     .then((response)=>{
         var tempes = response.map((e)=>{
