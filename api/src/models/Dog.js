@@ -22,9 +22,9 @@ module.exports = (sequelize) => {
     },
     life_span:{
       type: D.STRING
-    },       
+    },     
   },{
-    initialAutoIncrement: 1000
+    timestamps: false,
   });
 };
 

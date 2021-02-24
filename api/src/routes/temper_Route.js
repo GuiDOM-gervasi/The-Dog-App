@@ -1,8 +1,7 @@
 const {Router} = require("express");
 const router = Router();
-const axios = require('axios')
-const models = require('../db.js')
-const {Temperament} = models.conn.models
+const {conn} = require('../db.js')
+const {Temperament} = conn.models
 const {
     YOUR_API_KEY
   } = process.env;

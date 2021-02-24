@@ -8,5 +8,7 @@ module.exports = (sequelize) => {
       type: D.STRING,
       allowNull: false,
     },
+  },{
+    timestamps: false,
   });
 };
