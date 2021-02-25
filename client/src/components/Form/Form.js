@@ -1,14 +1,34 @@
 import React from "react"
 import { connect } from "react-redux";
-import { addDogs } from "../../actions";
+import { addDogs, getTemperaments } from "../../actions";
 
 const Form = (props) => {
   const [input, setInput] = React.useState({   
     name: "",
     heigth:"",
     weight: "",
-    life_span:""
+    life_span:"",
+    tempes:[]
  });
+ 
+ React.useEffect(() => {
+  props.getTemperaments()
+},[]);
+
+ 
+const select = (e) => {
+  const opciones = e.target.options;
+  const seleccionadas = [];
+  for (let i = 0; i < opciones.length; i++) {
+    if (opciones[i].selected) {
+      seleccionadas.push(opciones[i].value);
+    }      
+  }
+  setInput({
+    ...input,
+    tempes: seleccionadas
+  })    
+}
 
   const handleInputChange = function(e) {
     setInput({
@@ -19,6 +39,7 @@ const Form = (props) => {
 
   const handleSubmit = (e)=>{
      props.addDogs(input)
+     console.log(input)
     e.preventDefault()
   }
   
@@ -53,10 +74,19 @@ const Form = (props) => {
           autoComplete="off"
           />
         </div>
+        <div>
+          <label>Temperament</label>
+          <select multiple name="temperament" onChange={select}>
+            {
+              props.tempes.map((element)=>{
+                return <option>{element.name}</option>    
+              })
+            }
+          </select>
+        </div>
           <button type="submit">Create</button>
       </form>
       <div>
-  
       </div>
     </div>
   )
@@ -65,13 +95,15 @@ const Form = (props) => {
 
 function mapStateToProps(state) {
   return {
-    newDog: state.newDogs
+    newDog: state.newDogs,
+    tempes: state.tempes
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    addDogs: dog => dispatch(addDogs(dog))
+    addDogs: dog => dispatch(addDogs(dog)),
+    getTemperaments: ()=>dispatch(getTemperaments())
   };
 }
 

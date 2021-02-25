@@ -48,7 +48,7 @@ export function getDogsByName(name) {
 
 export function getTemperaments() {
     return function(dispatch) {
-      return axios.get('http://localhost:3001/temperaments')
+      return axios.get('http://localhost:3001/temperament')
         .then(response => {
           dispatch({ type: "GET_TEMPES", payload: response.data });
         })

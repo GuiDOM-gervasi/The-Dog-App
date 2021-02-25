@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getDogsByName } from "../../actions/index";
+import { getDogs, getDogsByName } from "../../actions/index";
 import Dogs from "../Dogs/Dogs";
 import styles from "./Buscador.module.css"
 
@@ -9,6 +9,11 @@ const Buscador = (props) =>{
     const [state, setState] = React.useState({
       name:""
   })
+
+  React.useEffect(() => {
+    props.getDogs()
+  },[]);
+
     function handleChange(e) {
       setState({ name: e.target.value});
     }
@@ -52,13 +57,14 @@ const Buscador = (props) =>{
   
   function mapStateToProps(state) {
     return {
-      dogs: state.dogsByName
+      dogs: state.dogs
     };
   }
   
   function mapDispatchToProps(dispatch) {
     return {
-      getDogsByName: name => dispatch(getDogsByName(name))
+      getDogsByName: name => dispatch(getDogsByName(name)),
+      getDogs: () => dispatch(getDogs())
     };
   }
   

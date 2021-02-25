@@ -6,6 +6,7 @@ const Dog = ({id,name,temperament,img}) => {
     return (
         <div className={styles.dog}>
             <div className={styles.dogBody}>
+                
                 <Link to={`/dogs/${id}`}>
                     <h5>{name}</h5>
                 </Link>
