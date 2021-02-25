@@ -43,6 +43,7 @@ router.get('/',(req,res)=>{
         var eight = response[0].data.splice(0,8)
         eight.forEach(element => {
             var obj = {
+                id: element.id,
                 name: element.name,
                 img: element.image.url,
                 temperament: element.temperament

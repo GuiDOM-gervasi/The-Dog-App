@@ -1,7 +1,6 @@
 const {Router} = require("express");
 const router = Router();
 const {conn} = require('../db.js');
-const parser = require("../utils/parser.js");
 const {Dog, Temperament} = conn.models
 
 
@@ -19,8 +18,7 @@ router.post('/',async(req,res)=>{
                 life_span
             }) 
         if(tempes){
-            var arr = parser.parserString(tempes)
-           arr.map(async(t)=>{
+           tempes.map(async(t)=>{
             const temperament = await Temperament.findAll({
                 where: {name : t},
             })
