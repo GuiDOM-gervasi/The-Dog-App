@@ -20,5 +20,14 @@ module.exports = {
     var nulo = trim.findIndex(e=> typeof e !== "string")
     trim.splice(nulo,1)
     return trim
+    },
+    parserString: function(string){
+        string = string.split(",")
+        var trim = string.map((e)=>{
+            if(e !== undefined && e !== null){
+            return e.trim()
+            }
+        })
+        return trim
     }
 }    

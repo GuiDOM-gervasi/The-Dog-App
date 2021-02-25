@@ -9,13 +9,27 @@ const {
 
 router.get('/',(req,res)=>{
   Promise.all([axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${YOUR_API_KEY}`),
-  Dog.findAll()])   
+  Dog.findAll({
+    include:{
+      model:Temperament
+    },
+  })])   
     .then((response)=> {
         // handle success
         if(req.query.name){
           var filterAPI = response[0].data.filter(element=>{
               return element.name.includes(req.query.name)
            })
+          filterAPI = filterAPI.map((element)=>{
+            return element = {
+              id: element.id,
+              name: element.name,
+              img: element.image.url,
+              temperament: element.temperament,
+              weight: element.weight.metric,
+              height: element.height.metric
+            }
+          })
            var filterDB = response[1].filter(element=>{
             return element.name.includes(req.query.name)
          })

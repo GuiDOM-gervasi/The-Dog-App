@@ -1,7 +1,9 @@
 const {Router} = require("express");
 const router = Router();
-const {conn} = require('../db.js')
+const {conn} = require('../db.js');
+const parser = require("../utils/parser.js");
 const {Dog, Temperament} = conn.models
+
 
 let idDog = 264;
 router.post('/',async(req,res)=>{
@@ -16,12 +18,18 @@ router.post('/',async(req,res)=>{
                 weight,
                 life_span
             }) 
-        const temperament = await Temperament.findOne({
-            where: {name : tempes}
-        })
-        dog.addTemperament(temperament)  
+        if(tempes){
+            var arr = parser.parserString(tempes)
+           arr.map(async(t)=>{
+            const temperament = await Temperament.findAll({
+                where: {name : t},
+            })
+            dog.addTemperament(temperament)
+           })      
+            return res.json(dog);
+        }
         return res.json(dog);
-
+        
     }
     
 })

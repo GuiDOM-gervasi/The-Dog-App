@@ -14,16 +14,17 @@ module.exports = (sequelize) => {
     },
     heigth: {
       type: D.STRING,
-      
+      allowNull: false,
     },
     weight: {
       type: D.STRING,
-      
+      allowNull: false,
     },
     life_span:{
       type: D.STRING
-    },     
-  },{
+    }, 
+    }    
+  ,{
     timestamps: false,
   });
 };
