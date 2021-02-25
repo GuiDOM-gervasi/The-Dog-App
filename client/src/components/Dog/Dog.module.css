@@ -1,0 +1,25 @@
+.dog {
+    margin: 20px;
+    width: 18rem;
+    background-color: #e0e0f1;
+  }
+  
+  .dogTitle {
+    margin-bottom: 15px;
+  }
+  
+  #closeIcon {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 8px;
+    margin-top: 8px;
+  }
+  
+  .dogBody {
+    margin-top: 0px !important;
+    padding-top: 0px !important;
+  }
+
+  .dogImg {
+      width: 50%;
+  }

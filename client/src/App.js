@@ -1,9 +1,15 @@
 import './App.css';
+import { Route } from "react-router-dom";
+import BtnStart from './components/BtnStart/BtnStart';
+import Buscador from './components/Buscador/Buscador';
+import Form from './components/Form/Form';
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Dogs</h1>
+      <Route exact path="/" component={BtnStart} />
+      <Route exact path="/dogs" component={Buscador}/>
+      <Route exact path="/add" component={Form}/>
     </div>
   );
 }
