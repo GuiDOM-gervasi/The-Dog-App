@@ -19,19 +19,25 @@ function App({doggys, setFilter}) {
     const select = d.querySelector("#orders").value
     const array = [...doggys]
    switch(select){
-     case "A-Z":
-       const asc =  array.sort((a, b) => a.name.localeCompare(b.name));
-       return setFilter(asc)
+    case "A-Z":
+      const asc =  array.sort((a, b) => a.name.localeCompare(b.name));
+      return setFilter(asc)
     case "Z-A":
       const desc =  array.sort((a, b) => b.name.localeCompare(a.name));
       return setFilter(desc)
     case "weigth+":
       const pesados =  array.sort((a, b) => Number(spliter(a.weight)) > Number(spliter(b.weight)) ? -1 : 1  );
       return setFilter(pesados)
-      case "weigth-":
-        const livianos =   array.sort((a, b) => Number(spliter(a.weight)) > Number(spliter(b.weight)) ? 1 : -1  );
-        return setFilter(livianos)
-      default:
+    case "weigth-":
+      const livianos =   array.sort((a, b) => Number(spliter(a.weight)) > Number(spliter(b.weight)) ? 1 : -1  );
+      return setFilter(livianos)
+    case "byYou":
+      const byYou = array.filter((e)=>{return e.id > 264})
+      return setFilter(byYou)
+    case "Api":
+      const api = array.filter((e)=>{return e.id < 264})
+      return setFilter(api)
+    default:
         return doggys
    }
   }

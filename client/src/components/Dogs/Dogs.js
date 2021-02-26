@@ -6,7 +6,15 @@ import styles from "./dogs.module.css"
 
 
 const Dogs = ({doggys, changeFilter}) => {
-  console.log(doggys)
+  if(!doggys.length){
+    return (
+      <div className={styles.dogs}>
+      <Dog
+      name="Dog not Found or Loading"
+      />
+      </div>
+    )
+  }
     return (
         <div className={styles.dogs}>
           <div>
@@ -15,6 +23,8 @@ const Dogs = ({doggys, changeFilter}) => {
             <option value="Z-A">Z-A</option>
             <option value="weigth+">Weigth +</option>
             <option value="weigth-">Weigth -</option> 
+            <option value="byYou">Created by You</option>
+            <option value="Api">Api Dog</option> 
           </select>
           </div>
           {

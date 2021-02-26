@@ -25,10 +25,10 @@ const Buscador = (props) =>{
       const { name } = state;
       return (
         <div className={styles.container}>
-          <h2>Buscador</h2>
+          <h2>Dogs</h2>
           <form className={styles.formContainer} onSubmit={(e) => handleSubmit(e)}>
             <div>
-              <label className={styles.label} htmlFor="name">Nombre de la raza: </label>
+              <label className={styles.label} htmlFor="name">Name of breed or temperament : </label>
               <input
                 type="text"
                 id="name"
@@ -38,7 +38,7 @@ const Buscador = (props) =>{
                 />
             </div>
             
-            <button className={styles.button} type="submit" onClick={()=>props.getDogsByName(name)}>BUSCAR</button>   
+            <button className={styles.button} type="submit" onClick={()=>props.getDogsByName(name)}>Search</button>   
           </form>
         </div>
       );

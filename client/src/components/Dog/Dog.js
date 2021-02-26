@@ -3,13 +3,16 @@ import styles from "./Dog.module.css"
 import {Link} from "react-router-dom"
 
 const Dog = ({id,name,temperament,img}) => {
+    
     return (
         <div className={styles.dog}>
-            <div className={styles.dogBody}>
-                
-                <Link to={`/dogs/${id}`}>
+            <div className={styles.dogBody}>            
+                {id ? <Link to={`/dogs/${id}`}>
                     <h5>{name}</h5>
                 </Link>
+                :<Link onClick={()=>{return window.location.reload();}}>
+                <h5>{name}</h5>
+            </Link>}
             </div>
             <div>
                 <img src={img} className={styles.dogImg}/>
