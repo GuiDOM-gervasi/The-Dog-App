@@ -33,7 +33,8 @@ router.get('/',(req,res)=>{
             id: element.id,
                 name: element.name,
                 temperament:parserArray(element.temperaments),
-                weight: element.weight
+                weight: element.weight,
+                img: element.img
           }
           principal.push(obj)
       });
