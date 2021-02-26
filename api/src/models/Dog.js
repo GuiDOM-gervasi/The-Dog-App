@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       type: D.STRING,
       allowNull: false,
     },
-    heigth: {
+    height: {
       type: D.STRING,
       allowNull: false,
     },
@@ -23,6 +23,9 @@ module.exports = (sequelize) => {
     life_span:{
       type: D.STRING
     }, 
+    img: {
+      type: D.STRING
+    }
     }    
   ,{
     timestamps: false,

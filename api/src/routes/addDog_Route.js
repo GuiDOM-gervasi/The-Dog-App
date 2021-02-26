@@ -8,14 +8,15 @@ let idDog = 264;
 router.post('/',async(req,res)=>{
     if(req.body){
         idDog++
-        const {name,heigth,weight,life_span,tempes} = req.body
+        const {name,height,weight,life_span,tempes} = req.body
         const dog = await Dog.create(
             {
                 id: idDog,
                 name,
-                heigth,
+                height,
                 weight,
-                life_span
+                life_span,
+                img:'http://localhost:3000/static/media/dog.cde07528.png'
             }) 
         if(tempes){
            tempes.map(async(t)=>{
