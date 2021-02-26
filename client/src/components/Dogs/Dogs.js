@@ -1,20 +1,32 @@
 import React from "react"
-import parserArray from "../../utils";
+import { connect } from "react-redux";
+import { setFilter } from "../../actions";
 import Dog from "../Dog/Dog";
-import Pic from "../../dog.png"
+import styles from "./dogs.module.css"
 
-const Dogs = ({doggys}) => {
+
+const Dogs = ({doggys, changeFilter}) => {
+  console.log(doggys)
     return (
-        <div className='cards'>
-          {doggys.map(d =>{
+        <div className={styles.dogs}>
+          <div>
+          <select size="3" id="orders" onChange={(e)=>{changeFilter(e)}} name="" defaultValue="A-Z">
+            <option value="A-Z">A-Z</option>
+            <option value="Z-A">Z-A</option>
+            <option value="weigth+">Weigth +</option>
+            <option value="weigth-">Weigth -</option> 
+          </select>
+          </div>
+          {
+          doggys.map(d =>{
             if(d.id > 264){
               return (
               <Dog
               key={d.id}
               id={d.id}
               name={d.name}
-              temperament={parserArray(d.temperaments)}
-              img={Pic}
+              temperament={d.temperament}
+              img={d.img}
               />
               )
             }
@@ -31,4 +43,15 @@ const Dogs = ({doggys}) => {
       );
 }
 
-export default Dogs
+function mapStateToProps(state) {
+  return {
+    doggys: state.dogsName,
+  };
+}
+
+ 
+
+
+export default connect(
+  mapStateToProps
+)(Dogs);

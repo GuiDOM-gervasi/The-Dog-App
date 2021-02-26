@@ -12,13 +12,14 @@ const Details = (props) => {
     
     console.log(props.dogDetails)  
     return ( 
-        <div className="movie-detail movie-card">
-            <div className="container">
+        <div>
+            <div>
                 <h2>{props.dogDetails.name}</h2> 
-                <p>{props.dogDetails.heigth}</p>
-                <p>{props.dogDetails.weight}</p>
-                <p>{props.dogDetails.temperaments}</p>
                 <img src={props.dogDetails.img} alt="img-dog"/>
+                <p>Height: {props.dogDetails.height}</p>
+                <p>Weight: {props.dogDetails.weight}</p>
+                <p>life_span: {props.dogDetails.life_span}</p>
+                <p>Temperaments: {props.dogDetails.temperament}</p>
             </div>
         </div>
     )

@@ -1,22 +1,29 @@
 import React from "react"
 import { connect } from "react-redux";
 import { addDogs, getTemperaments } from "../../actions";
+import styles from "./form.module.css"
+import { validate } from "../../utils";
+
+
+
 
 const Form = (props) => {
   const [input, setInput] = React.useState({   
     name: "",
-    heigth:"",
+    height:"",
     weight: "",
     life_span:"",
     tempes:[]
- });
+  });
+
+  const [errors, setErrors] = React.useState({});
  
- React.useEffect(() => {
+  React.useEffect(() => {
   props.getTemperaments()
-},[]);
+  },[]);
 
  
-const select = (e) => {
+  const select = (e) => {
   const opciones = e.target.options;
   const seleccionadas = [];
   for (let i = 0; i < opciones.length; i++) {
@@ -28,18 +35,25 @@ const select = (e) => {
     ...input,
     tempes: seleccionadas
   })    
-}
+  }
 
   const handleInputChange = function(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value
     });
+    setErrors(validate({
+      ...input,
+      [e.target.name]: e.target.value
+    }));
   }
 
   const handleSubmit = (e)=>{
-     props.addDogs(input)
-     console.log(input)
+    const {name,height,weight} = errors
+    if(!name && !height && !weight){
+      props.addDogs(input)
+      console.log(props.newDog)
+    }
     e.preventDefault()
   }
   
@@ -47,36 +61,49 @@ const select = (e) => {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name</label>
-          <input name="name" 
+          <label>Name: </label>
+          <input 
+          name="name" 
+          className={errors.name && styles.indanger}
           onChange={handleInputChange}
           autoComplete="off"
+          placeholder="Ej: Akita"
           />
+          {errors.name && (<p className={styles.pdanger}>{errors.name}</p>)}
         </div> 
         <div>
-          <label>Heigth</label>
-          <input name="heigth" onChange={handleInputChange}
+          <label>Height: </label>
+          <input 
+          name="height" 
+          className={errors.height && styles.indanger}
+          onChange={handleInputChange}
           autoComplete="off"
+          placeholder="Ej: 20-22"
           />
+          {errors.height && (<p className={styles.pdanger}>{errors.height}</p>)}
         </div> 
         <div>
-          <label>Weight</label>
+          <label>Weight: </label>
           <input 
           name="weight" 
+          className={errors.weight && styles.indanger}
           onChange={handleInputChange}
           autoComplete="off"
+          placeholder="Ej: 20-22"
           />
+          {errors.weight && (<p className={styles.pdanger}>{errors.weight}</p>)}
         </div> 
         <div>
-          <label>Life span</label>
+          <label>Life span: </label>
           <input name="life_span" 
           onChange={handleInputChange}
           autoComplete="off"
+          placeholder="Ej: 20-22 years"
           />
         </div>
         <div>
-          <label>Temperament</label>
-          <select multiple name="temperament" onChange={select}>
+          <label>Temperament: </label>
+          <select size="3" multiple name="temperament" onChange={select} className={styles.formcontrol}>
             {
               props.tempes.map((element)=>{
                 return <option>{element.name}</option>    

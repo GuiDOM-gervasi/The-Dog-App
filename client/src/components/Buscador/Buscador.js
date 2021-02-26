@@ -1,29 +1,27 @@
 import React from "react"
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { getDogs, getDogsByName } from "../../actions/index";
 import Dogs from "../Dogs/Dogs";
 import styles from "./Buscador.module.css"
 
 const Buscador = (props) =>{
     const [state, setState] = React.useState({
-      name:""
+      name:"",
+      checked:""
   })
 
   React.useEffect(() => {
-    props.getDogs()
+    props.getDogsByName("")
   },[]);
 
-    function handleChange(e) {
-      setState({ name: e.target.value});
+  function handleChange(e) {
+      setState({ 
+        name: e.target.value
+      });
     }
-    function handleSubmit(e) {
+  function handleSubmit(e) {
       e.preventDefault();
     }
-  
-    
-    
-    
       const { name } = state;
       return (
         <div className={styles.container}>
@@ -40,35 +38,22 @@ const Buscador = (props) =>{
                 />
             </div>
             
-            <button className={styles.button} type="submit" onClick={()=>props.getDogsByName(name)}>BUSCAR</button>
-            
+            <button className={styles.button} type="submit" onClick={()=>props.getDogsByName(name)}>BUSCAR</button>   
           </form>
-          <div>
-            {console.log(props.dogs)}
-            <Dogs
-            doggys={props.dogs}
-            />
-          </div>
         </div>
       );
     }
     
   
   
-  function mapStateToProps(state) {
-    return {
-      dogs: state.dogs
-    };
-  }
   
   function mapDispatchToProps(dispatch) {
     return {
       getDogsByName: name => dispatch(getDogsByName(name)),
-      getDogs: () => dispatch(getDogs())
     };
   }
   
   export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
   )(Buscador);

@@ -1,3 +1,12 @@
 
+  .pdanger {
+    color: red;
+    font-size: 1rem;
+  }
   
+  .indanger:focus{
+    border: 1px solid red;
+          outline: none;
+  }
+
   

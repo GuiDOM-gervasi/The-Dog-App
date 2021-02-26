@@ -46,6 +46,15 @@ export function getDogsByName(name) {
     };
   }
 
+export function setFilter(filter){
+  console.log("entre")
+  return {
+    type: "SET_FILTER",
+    payload: filter
+  }
+}
+
+
 export function getTemperaments() {
     return function(dispatch) {
       return axios.get('http://localhost:3001/temperament')

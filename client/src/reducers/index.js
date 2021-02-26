@@ -1,5 +1,6 @@
 const initialState = {
     dogs: [],
+    dogsName:[],
     newDogs:[],
     dogDetails: {},
     tempes: []
@@ -25,13 +26,20 @@ const rootReducer = (state=initialState, action) => {
         case "GET_NAMEDOGS":
         return {
             ...state,
-            dogs: action.payload
+            dogsName: action.payload
         }
         case "GET_TEMPES":
         return {
             ...state,
             tempes: state.tempes.concat(action.payload), 
         }
+        case "SET_FILTER":
+            console.log("entre")
+            return {
+                ...state,
+                dogsName: action.payload 
+
+            }
         default:
             return state
     }
