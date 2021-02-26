@@ -2,21 +2,33 @@ import React from "react"
 import { connect } from "react-redux";
 import { setFilter } from "../../actions";
 import Dog from "../Dog/Dog";
-import styles from "./dogs.module.css"
-
+import "./dogs.css"
+import ReactPaginate from "react-paginate"
 
 const Dogs = ({doggys, changeFilter}) => {
+  const [pageNumber, setPageNumber] = React.useState(0)
+  
+  const dogsPP = 8;
+  const pageVisited = pageNumber * dogsPP;
+  
+  const displayUsers = doggys.slice(pageVisited,pageVisited+dogsPP)
+  
   if(!doggys.length){
     return (
-      <div className={styles.dogs}>
+      <div className="dogs">
       <Dog
       name="Dog not Found or Loading"
       />
       </div>
     )
   }
+    const count = Math.ceil(doggys.length / dogsPP)
+
+    const changePage = ({selected}) => {
+        setPageNumber(selected)
+    }
     return (
-        <div className={styles.dogs}>
+        <div className="dogs">
           <div>
           <select size="3" id="orders" onChange={(e)=>{changeFilter(e)}} name="" defaultValue="A-Z">
             <option value="A-Z">A-Z</option>
@@ -28,7 +40,7 @@ const Dogs = ({doggys, changeFilter}) => {
           </select>
           </div>
           {
-          doggys.map(d =>{
+          displayUsers.map(d =>{
             if(d.id > 264){
               return (
               <Dog
@@ -49,6 +61,17 @@ const Dogs = ({doggys, changeFilter}) => {
               img={d.img}
             />)
           })}
+          <ReactPaginate 
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={count}
+          onPageChange={changePage}
+          containerClassName={"paginationBttns"}
+          previousLinkClassName={"previousBttn"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisable"}
+          activeClassName={"paginationActive"}
+          />
         </div>
       );
 }
