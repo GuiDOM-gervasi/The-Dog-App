@@ -16,7 +16,7 @@ router.post('/',async(req,res)=>{
                 height,
                 weight,
                 life_span,
-                img:'http://localhost:3000/static/media/dog.cde07528.png'
+                img:'http://localhost:3000/static/media/india.a29799b7.png'
             }) 
         if(tempes){
            tempes.map(async(t)=>{
