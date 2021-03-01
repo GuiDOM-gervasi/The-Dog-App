@@ -18,7 +18,7 @@ const Dog = ({id,name,temperament,img}) => {
                 <img src={img} className={styles.dogImg}/>
             </div>
             <div>
-                {id && <p className={styles.p}>Temperaments: {temperament}</p>}
+                {id && <p className={styles.p}>Temperament: {temperament}</p>}
             </div>
         </div>
     )

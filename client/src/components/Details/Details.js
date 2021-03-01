@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux";
 import { getDogDetails } from "../../actions";
+import styles from "./details.module.css"
 
 const Details = (props) => {
     React.useEffect(()=>{
@@ -8,18 +9,18 @@ const Details = (props) => {
         props.getDogDetails(dogId) 
         
     },[])
-    
-    
-    console.log(props.dogDetails)  
+      
     return ( 
-        <div>
-            <div>
+        <div className={styles.container}>
+            <div className={styles.img}>
                 <h2>{props.dogDetails.name}</h2> 
-                <img src={props.dogDetails.img} alt="img-dog"/>
+                <img className={styles.img} src={props.dogDetails.img} alt="img-dog"/>
+            </div>
+            <div className={styles.data}>
                 <p>Height: {props.dogDetails.height}</p>
                 <p>Weight: {props.dogDetails.weight}</p>
                 <p>life_span: {props.dogDetails.life_span}</p>
-                <p>Temperaments: {props.dogDetails.temperament}</p>
+                <p>Temperament: {props.dogDetails.temperament}</p>
             </div>
         </div>
     )

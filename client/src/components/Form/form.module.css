@@ -1,12 +1,50 @@
+.container {
+  display:flex;
+  text-align: center;
+}
 
-  .pdanger {
-    color: red;
-    font-size: 1rem;
-  }
-  
-  .indanger:focus{
-    border: 1px solid red;
-          outline: none;
-  }
+.form {
+  width: 50%;
+  margin: auto;
+  margin-top: 5rem;
+}
 
+.input {
+  display: flex;
+  margin-bottom: 1rem;
+  align-content: center;
+}
+
+.inputBtn {
+  width: 50%;
+  display: flex;
+  margin-bottom: 1rem;
+  align-content: center;
+}
+.pdanger {
+  color: red;
+  font-size: 1rem;
+}
   
+.indanger:focus{
+  border: 1px solid red;
+  outline: none;
+}
+
+.button {
+  margin: auto;
+  height: 2rem;
+  border: 0;
+  background-color: rgb(167, 122, 71);
+  color: white;
+  border-radius: 0.2rem;
+}
+
+.button:hover {
+  background-color:rgb(117, 86, 50); ;
+}
+
+.label {
+  padding-right: 0.5rem;
+  font-weight: 500;
+}

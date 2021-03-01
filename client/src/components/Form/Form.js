@@ -58,21 +58,21 @@ const Form = (props) => {
   }
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name: </label>
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.input}>
+          <label className={styles.label}>Name: </label>
           <input 
           name="name" 
-          className={errors.name && styles.indanger}
+          className={`${errors.name && styles.indanger}`}
           onChange={handleInputChange}
           autoComplete="off"
           placeholder="Ej: Akita"
           />
           {errors.name && (<p className={styles.pdanger}>{errors.name}</p>)}
         </div> 
-        <div>
-          <label>Height: </label>
+        <div className={styles.input}>
+          <label className={styles.label} >Height: </label>
           <input 
           name="height" 
           className={errors.height && styles.indanger}
@@ -82,8 +82,8 @@ const Form = (props) => {
           />
           {errors.height && (<p className={styles.pdanger}>{errors.height}</p>)}
         </div> 
-        <div>
-          <label>Weight: </label>
+        <div className={styles.input}>
+          <label className={styles.label}>Weight: </label>
           <input 
           name="weight" 
           className={errors.weight && styles.indanger}
@@ -93,16 +93,16 @@ const Form = (props) => {
           />
           {errors.weight && (<p className={styles.pdanger}>{errors.weight}</p>)}
         </div> 
-        <div>
-          <label>Life span: </label>
+        <div className={styles.input}>
+          <label className={styles.label}>Life span: </label>
           <input name="life_span" 
           onChange={handleInputChange}
           autoComplete="off"
           placeholder="Ej: 20-22 years"
           />
         </div>
-        <div>
-          <label>Temperament: </label>
+        <div className={styles.input}>
+          <label className={styles.label}>Temperament: </label>
           <select size="3" multiple name="temperament" onChange={select} className={styles.formcontrol}>
             {
               props.tempes.map((element)=>{
@@ -111,10 +111,10 @@ const Form = (props) => {
             }
           </select>
         </div>
-          <button type="submit">Create</button>
-      </form>
-      <div>
+        <div className={styles.inputBtn}>
+          <button type="submit" className={styles.button}>Create</button>       
       </div>
+      </form>
     </div>
   )
 

@@ -1,5 +1,4 @@
 const initialState = {
-    dogs: [],
     dogsName:[],
     newDogs:[],
     dogDetails: {},
@@ -8,11 +7,6 @@ const initialState = {
 
 const rootReducer = (state=initialState, action) => {
     switch(action.type) {
-        case "GET_DOGS":
-            return {
-                ...state,
-                dogs: state.dogs.concat(action.payload),
-            };
         case "ADD_DOG":
             return {
                 ...state,

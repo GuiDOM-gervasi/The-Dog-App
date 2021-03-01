@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.data{
+    margin-top: 4rem;
+    width: 24%;
+}
+
+.img {
+    width: 60%;
+}
+

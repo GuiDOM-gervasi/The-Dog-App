@@ -2,7 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    height: 0.5rem;
   }
+
+.select {
+ margin-top: 3rem;
+}
 
 
 .paginationBttns {

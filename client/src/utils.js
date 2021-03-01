@@ -38,7 +38,9 @@ export function validate(input) {
   };
   
 export const spliter = (string) => {
-	
+	if(string === "NaN"){
+		return 10
+	}
 	if(string){
 		string = string.split(" ")
 		var peso = string[2] || string[0]

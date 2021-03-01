@@ -1,17 +1,5 @@
 import axios from 'axios'
 
-export function getDogs() {
-    return function(dispatch) {
-      return axios.get('http://localhost:3001/dogs')
-        .then(response => {
-          dispatch({ type: "GET_DOGS", payload: response.data });
-        })
-        .catch(err=>{
-          console.log(err)
-        });
-    };
-  }
-
   export function addDogs(dog) {
     return function(dispatch) {
       return axios.post('http://localhost:3001/dog',dog)

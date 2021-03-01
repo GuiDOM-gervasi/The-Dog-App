@@ -3,7 +3,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    background-color: #434446;
+    background-color: rgb(167, 122, 71);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +43,7 @@
 
 .listitem a:hover,
 .listitem a.active {
-    background-color: #808080;
+    background-color: rgb(117, 86, 50);
     color: white;
     height: 36%;
     margin-top: 0;

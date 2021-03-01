@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux";
-import { setFilter } from "../../actions";
+//import { setFilter } from "../../actions";
 import Dog from "../Dog/Dog";
 import "./dogs.css"
 import ReactPaginate from "react-paginate"
@@ -8,7 +8,7 @@ import ReactPaginate from "react-paginate"
 const Dogs = ({doggys, changeFilter}) => {
   const [pageNumber, setPageNumber] = React.useState(0)
   
-  const dogsPP = 8;
+  const dogsPP = 7;
   const pageVisited = pageNumber * dogsPP;
   
   const displayUsers = doggys.slice(pageVisited,pageVisited+dogsPP)
@@ -30,7 +30,7 @@ const Dogs = ({doggys, changeFilter}) => {
     return (
         <div className="dogs">
           <div>
-          <select size="3" id="orders" onChange={(e)=>{changeFilter(e)}} name="" defaultValue="A-Z">
+          <select  className="select" size="1" id="orders" onChange={(e)=>{changeFilter(e)}} name="" defaultValue="A-Z">
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
             <option value="weigth+">Weigth +</option>
@@ -41,17 +41,6 @@ const Dogs = ({doggys, changeFilter}) => {
           </div>
           {
           displayUsers.map(d =>{
-            if(d.id > 264){
-              return (
-              <Dog
-              key={d.id}
-              id={d.id}
-              name={d.name}
-              temperament={d.temperament}
-              img={d.img}
-              />
-              )
-            }
             return( 
             <Dog
             key={d.id}

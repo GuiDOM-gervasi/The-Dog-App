@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Pic from "../../dog.png"
+import Pic from "../../img/india.png"
 import styles from './nav.module.css';
 
 export default function NavBar() {

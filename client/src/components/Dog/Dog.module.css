@@ -1,11 +1,14 @@
 .dog {
     margin: 20px;
     width: 18rem;
-    background-color: #e0e0f1;
+    background-color: #e2d0b6;
+    border-radius: 2rem;
   }
+
   
   .dogTitle {
     margin-bottom: 15px;
+    color: aqua;
   }
   
   #closeIcon {
@@ -22,6 +25,7 @@
 
   .dogImg {
       width: 50%;
+      height: 50%;
   }
 
   p{
