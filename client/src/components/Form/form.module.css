@@ -4,7 +4,7 @@
 }
 
 .form {
-  width: 50%;
+  width: 20%;
   margin: auto;
   margin-top: 5rem;
 }
@@ -12,14 +12,16 @@
 .input {
   display: flex;
   margin-bottom: 1rem;
-  align-content: center;
+  align-content: space-around;
 }
 
 .inputBtn {
+  margin: auto;
   width: 50%;
   display: flex;
   margin-bottom: 1rem;
   align-content: center;
+  align-self: center;
 }
 .pdanger {
   color: red;
@@ -47,4 +49,5 @@
 .label {
   padding-right: 0.5rem;
   font-weight: 500;
+  margin:auto;
 }
