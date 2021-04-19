@@ -69,8 +69,8 @@ const Form = (props) => {
           autoComplete="off"
           placeholder="Ej: Akita"
           />
-          {errors.name && (<p className={styles.pdanger}>{errors.name}</p>)}
         </div> 
+          {errors.name && (<p className={styles.pdanger}>{errors.name}</p>)}
         <div className={styles.input}>
           <label className={styles.label} >Height: </label>
           <input 
@@ -80,8 +80,8 @@ const Form = (props) => {
           autoComplete="off"
           placeholder="Ej: 20-22"
           />
-          {errors.height && (<p className={styles.pdanger}>{errors.height}</p>)}
         </div> 
+          {errors.height && (<p className={styles.pdanger}>{errors.height}</p>)}
         <div className={styles.input}>
           <label className={styles.label}>Weight: </label>
           <input 
@@ -91,8 +91,8 @@ const Form = (props) => {
           autoComplete="off"
           placeholder="Ej: 20-22"
           />
-          {errors.weight && (<p className={styles.pdanger}>{errors.weight}</p>)}
         </div> 
+          {errors.weight && (<p className={styles.pdanger}>{errors.weight}</p>)}
         <div className={styles.input}>
           <label className={styles.label}>Life span: </label>
           <input name="life_span" 

@@ -4,15 +4,15 @@
 }
 
 .form {
-  width: 20%;
+  width: 30%;
   margin: auto;
   margin-top: 5rem;
 }
 
 .input {
   display: flex;
+  width: 50%;
   margin-bottom: 1rem;
-  align-content: space-around;
 }
 
 .inputBtn {
@@ -49,5 +49,6 @@
 .label {
   padding-right: 0.5rem;
   font-weight: 500;
+  color: rgb(117, 86, 50);
   margin:auto;
 }

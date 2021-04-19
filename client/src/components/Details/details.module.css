@@ -1,6 +1,8 @@
 .container {
     display: flex;
-    margin-top: 3rem;
+    margin: 3rem;
+    border: solid rgb(65, 47, 27);
+    border-radius: 4px;
 }
 
 .data{
@@ -9,6 +11,7 @@
 }
 
 .img {
+    margin-bottom: 3rem;
     width: 60%;
 }
 
