@@ -13,7 +13,7 @@ export default function NavBar() {
                 <ul className={styles.list}>
                     <li className={styles.listitem}>
                         <NavLink to="/dogs" className={styles.listitema}>Home</NavLink>
-                        <NavLink exact to="/add" className={styles.listitema}>Add Dog</NavLink>
+                        <NavLink exact to="/dogs/add" className={styles.listitema}>Add Dog</NavLink>
                     </li>
                 </ul>
             </nav>
