@@ -28,17 +28,18 @@ const Dogs = ({doggys, changeFilter}) => {
         setPageNumber(selected)
     }
     return (
+      <div className="container">
+      <div>
+      <select  className="select" size="1" id="orders" onChange={(e)=>{changeFilter(e)}} name="" defaultValue="A-Z">
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+        <option value="weigth+">Weigth +</option>
+        <option value="weigth-">Weigth -</option> 
+        <option value="byYou">Created by You</option>
+        <option value="Api">Api Dog</option> 
+      </select>
+      </div>
         <div className="dogs">
-          <div>
-          <select  className="select" size="1" id="orders" onChange={(e)=>{changeFilter(e)}} name="" defaultValue="A-Z">
-            <option value="A-Z">A-Z</option>
-            <option value="Z-A">Z-A</option>
-            <option value="weigth+">Weigth +</option>
-            <option value="weigth-">Weigth -</option> 
-            <option value="byYou">Created by You</option>
-            <option value="Api">Api Dog</option> 
-          </select>
-          </div>
           {
           displayUsers.map(d =>{
             return( 
@@ -61,6 +62,7 @@ const Dogs = ({doggys, changeFilter}) => {
           disabledClassName={"paginationDisable"}
           activeClassName={"paginationActive"}
           />
+        </div>
         </div>
       );
 }

@@ -5,7 +5,7 @@ import foto from "../../img/india.png"
 const BtnStart = () => {
     return (
         <div className={styles.start}>
-            <h1>Welcome to  The Dog App</h1>
+            <h1>Welcome</h1>
             <NavLink exact to="/dogs" >
             <button className={styles.button}>
                 Go to home

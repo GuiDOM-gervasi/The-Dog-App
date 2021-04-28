@@ -1,11 +1,15 @@
+.container{
+  display: flex;
+}
+
 .dogs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 0.5rem;
   }
 
 .select {
+  margin-left: 1rem;
  margin-top: 3rem;
 }
 
@@ -22,16 +26,23 @@
   padding: 10px;
   margin: 8px;
   border-radius: 5px;
-  border: 1px solid #2b2eff;
+  border: 1px solid  rgb(65, 47, 27);
   cursor: pointer;
 }
 
 .paginationBttns a:hover {
   color: white;
-  background-color: #2b2eff;
+  background-color: rgb(167, 122, 71);
 }
 
 .paginationActive a {
   color: white;
-  background-color: #2b2eff;
+  background-color: rgb(167, 122, 71);
+}
+
+
+@media (max-width: 673px) {
+  .container{
+    flex-direction: column;
+  }
 }
