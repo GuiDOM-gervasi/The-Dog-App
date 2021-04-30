@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./Dog.module.css";
 import { Link } from "react-router-dom";
+import { StyledDog } from "./StyledDog";
 
 const Dog = ({ id, name, temperament, img }) => {
   return (
-    <div className={styles.dog}>
-      <div className={styles.dogBody}>
+    <StyledDog>
+      <div className="dogBody">
         {id ? (
           <Link to={`/dog/${id}`}>
             <h5>{name}</h5>
@@ -20,11 +20,18 @@ const Dog = ({ id, name, temperament, img }) => {
           </Link>
         )}
       </div>
-      <div>
-        <img src={img} className={styles.dogImg} />
+      <div className="lines">
+        <img src={img} />
       </div>
-      <div>{id && <p className={styles.p}>Temperament: {temperament}</p>}</div>
-    </div>
+      <div className="text">
+        {id && (
+          <>
+            <h5>Temperament:</h5>
+            <p>{temperament}</p>
+          </>
+        )}
+      </div>
+    </StyledDog>
   );
 };
 
