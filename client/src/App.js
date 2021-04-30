@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Route } from "react-router-dom";
 import BtnStart from "./components/BtnStart/BtnStart";
-import Buscador from "./components/Buscador/Buscador";
+import Search from "./components/Search/Search";
 import Form from "./components/Form/Form";
 import Details from "./components/Details/Details";
 import NavBar from "./components/NavBar/nav";
@@ -52,7 +52,7 @@ function App({ doggys, setFilter }) {
     <div className="App">
       <NavBar path="/dogs" />
       <Route exact path="/" component={BtnStart} />
-      <Route exact path="/dogs" component={Buscador} />
+      <Route exact path="/dogs" component={Search} />
       <Route exact path="/dogs">
         <Dogs changeFilter={changeFilter} />
       </Route>

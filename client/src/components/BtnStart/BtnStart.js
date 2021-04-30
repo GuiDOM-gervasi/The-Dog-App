@@ -8,7 +8,7 @@ const BtnStart = () => {
         <h5>India</h5>
         <p>
           She is India, my first pet, unfortunately she is no longer here with
-          me. I dedicate this web app to him so that everyone knows that he was
+          me. I dedicate this web app to him so that everyone knows that she was
           the best dog in the world !!
         </p>
         <Link exact to="/dogs">

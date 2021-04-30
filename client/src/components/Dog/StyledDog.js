@@ -6,9 +6,9 @@ export const StyledDog = styled.div`
   align-items: center;
   margin: 20px;
   width: 18rem;
-  background-color: #e2d0b6;
+  background-color: rgb(226, 208, 182);
   border-radius: 0.2rem;
-
+  opacity: .7;
   .dogBody {
     margin-top: 0px !important;
     padding-top: 0px !important;
@@ -16,14 +16,14 @@ export const StyledDog = styled.div`
 
   .dogBody a {
     text-decoration: none;
-    color: rgb(65, 47, 27);
+    color: #3d3429;
   }
 
   .lines {
     padding: 4px 4px;
     padding-top: 9.5px;
-    border-top: 1px solid rgb(65, 47, 27);
-    border-bottom: 1px solid rgb(65, 47, 27);
+    border-top: 1px solid #3d3429;
+    border-bottom: 1px solid #3d3429;
     width: 50%;
     img {
       width: 95%;
@@ -33,7 +33,7 @@ export const StyledDog = styled.div`
   .text {
     width: 60%;
     h5 {
-      color: rgb(65, 47, 27);
+      color: #3d3429;
       margin-bottom: 1px;
     }
     p {

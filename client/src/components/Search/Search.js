@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getDogs, getDogsByName } from "../../actions/index";
-import Dogs from "../Dogs/Dogs";
-import styles from "./Buscador.module.css";
+import { getDogsByName } from "../../actions/index";
+import{StyledSearch} from "./StyledSearch";
 
-const Buscador = (props) => {
+const Search = (props) => {
   const [state, setState] = React.useState({
     name: "",
     checked: "",
@@ -24,14 +23,13 @@ const Buscador = (props) => {
   }
   const { name } = state;
   return (
-    <div className={styles.container}>
-      <form className={styles.formContainer} onSubmit={(e) => handleSubmit(e)}>
-        <label className={styles.label} htmlFor="name">
+    <StyledSearch>
+      <form className="formContainer" onSubmit={(e) => handleSubmit(e)}>
+        <label htmlFor="name">
           Name of breed or temperament :{" "}
         </label>
-        <div className={styles.search}>
+        <div className="search">
         <input
-          className={styles.input}
           type="text"
           id="name"
           autoComplete="off"
@@ -39,7 +37,6 @@ const Buscador = (props) => {
           onChange={(e) => handleChange(e)}
         />
         <button
-          className={styles.button}
           type="submit"
           onClick={() => props.getDogsByName(name)}
         >
@@ -47,7 +44,7 @@ const Buscador = (props) => {
         </button>
         </div>
       </form>
-    </div>
+    </StyledSearch>
   );
 };
 
@@ -57,4 +54,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Buscador);
+export default connect(null, mapDispatchToProps)(Search);

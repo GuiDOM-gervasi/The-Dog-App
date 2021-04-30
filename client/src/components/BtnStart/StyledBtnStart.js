@@ -14,15 +14,15 @@ export const StyledBtnStart = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     margin: 6rem 3rem;
     width: 30%;
-    height: 20rem;
-    background-color:#f7eddf;
+    height: 15rem;
+    background-color: rgba(170, 190, 191,0.3);
+    opacity: 10;
     border-radius: 6px;
-    border-top: 4px solid rgb(160, 131, 99);
+    border-top: 4px solid rgb(120, 162, 194, 0.7);
     box-shadow: 0px 3px 26px #00000045;
-
     h5 {
       margin: 0;
       font-size: 2rem;
@@ -42,7 +42,7 @@ export const StyledBtnStart = styled.div`
       font-size: 0.9rem;
       cursor: pointer;
       &:hover {
-        background-color: rgb(117, 86, 50);
+        background-color: #856d52;
       }
     }
   }
